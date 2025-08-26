@@ -33,7 +33,20 @@ const HeroSection = () => {
         ease: "power2.out",
       });
 
-      
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hero-container",
+        start: "1% top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+    heroTl.to(".hero-container", {
+      rotate: 7,
+      scale: 0.9,
+      yPercent: 30,
+      ease: "power1.inOut",
+    });
   });
 
   return (
@@ -52,7 +65,7 @@ const HeroSection = () => {
           <div
             className="hero-text-scroll"
             style={{
-              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+              clipPath: "polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)",
             }}
           >
             <div className="hero-subtitle">
