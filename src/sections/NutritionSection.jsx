@@ -36,10 +36,42 @@ const NutritionSection = () => {
         start: "top center",
       },
     });
-    contentTl.from(titleSplit.chars, {
-      yPercent: 100,
-      stagger: 0.02,
-      ease: "power2.out",
+    contentTl
+      .from(titleSplit.chars, {
+        yPercent: 100,
+        stagger: 0.02,
+        ease: "power2.out",
+      })
+      .from(titleSplit.words, {
+        yPercent: 300,
+        rotate: 3,
+        ease: "power1.inOut",
+        duration: 1,
+        stagger: 0.01,
+      })
+      .from(
+        paragraphSplit.words,
+        {
+          opacity: 0,
+          y: 30,
+          stagger: 0.01,
+          ease: "power2.out",
+        },
+        "<"
+      );
+
+    const titleTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".nutrition-section",
+        start: "top 80%",
+      },
+    });
+
+    titleTl.to(".nutrition-text-scroll", {
+      duration: 1,
+      opacity: 1,
+      clipPath: "polygon(100% 0, 0 0, 0 100%, 100% 100%)",
+      ease: "power1.inOut",
     });
   });
 
@@ -59,7 +91,10 @@ const NutritionSection = () => {
             <div className="overflow-hidden place-self-start">
               <h1 className="nutrition-title">It still does</h1>
             </div>
-            <div style={{}} className="nutrition-text-scroll place-self-start">
+            <div
+              style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
+              className="nutrition-text-scroll place-self-start"
+            >
               <div className="bg-yellow-brown pb-5 md:pt-0 pt-3 md:px-5 px-3">
                 <h2 className="text-milk-yellow">Body Good</h2>
               </div>
