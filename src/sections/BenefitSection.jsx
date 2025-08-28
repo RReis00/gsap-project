@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import ClipPathTitle from "../components/ClipPathTitle";
 import gsap from "gsap";
+import VideoPinSection from "../components/VideoPinSection";
 
 const BenefitSection = () => {
   useGSAP(() => {
@@ -86,7 +87,9 @@ const BenefitSection = () => {
         </div>
       </div>
 
-      <div className="relative overlay-box"></div>
+      <div className="relative overlay-box">
+        <VideoPinSection />
+      </div>
     </section>
   );
 };
